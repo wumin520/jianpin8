@@ -109,15 +109,12 @@ class Application(QKFlask):
     def prepare_web(self):
         CORS(self, resources={r"/*": {"origins": "*"}})
 
-        from .views import MyJsonEncoder
-        self.json_encoder = MyJsonEncoder
-
         # 加载所有控制器
         self.load_views()
 
     def load_views(self):
         import jianpin.views
-        load_module_recursively(medivh.views)
+        load_module_recursively(jianpin.views)
 
     def prepare_db(self):
         QKFlaskSQLAlchemy(db, self)
