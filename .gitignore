@@ -78,10 +78,6 @@ _book
 *.mobi
 *.pdf
 
-# Hebe templates/index.html
-hebe/templates/index.html
-hebe/templates/kallistis
-
 # docker
 docker_volumes
 
@@ -91,4 +87,3 @@ docker_volumes
 *.pem
 *.p7
 
-17monipdb.dat
