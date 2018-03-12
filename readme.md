@@ -22,5 +22,5 @@ make install
 #### 开发运行
 
 ```powershell
-
+make run
 ```
