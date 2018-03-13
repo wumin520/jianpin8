@@ -124,3 +124,18 @@ class JobBll(BaseBll):
         if row and row.cnt:
             return row.cnt
         return 0
+
+    def get_by_id(self, id):
+        """
+
+        :param id:
+        :return:
+        """
+        return db.session.execute(
+            """
+            SELECT * FROM jobs WHERE id = :id
+            """,
+            {
+                'id': id
+            }
+        ).fetchone()

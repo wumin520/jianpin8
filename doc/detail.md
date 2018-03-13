@@ -69,7 +69,6 @@ GET
       "company": "公司名称",
       "jump_url": "跳转的url",
       "jump_type": "跳转方式：1：URL，2：wechat",
-      ""
   }
 }
 ```
