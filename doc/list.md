@@ -32,9 +32,9 @@ GET
 | id | Integer | id |
 | title | String | 标题 |
 | city_name | String | 城市名 |
-| new_tag | String | 标签 |
-| recruit_starttime | String | 招聘开始时间 |
-| recruit_endtime | String | 招聘结束时间 |
+| tag | String | 标签 |
+| jianpin_starttime | String | 招聘开始时间 |
+| jianpin_endtime | String | 招聘结束时间 |
 | currency | String | 薪资 |
 | currency_unit | String | 薪资结算的单位 |
 | jiexi_type | String | 结息方式 |
@@ -49,8 +49,8 @@ GET
       "title": "标题",
       "city_name": "城市名",
       "tag": "标签",
-      "recruit_starttime": "招聘开始时间",
-      "recruit_endtime": "招聘结束时间",
+      "jianpin_starttime": "招聘开始时间",
+      "jianpin_endtime": "招聘结束时间",
       "currency": "薪资",
       "currency_unit": "薪资结算的单位",
       "jiexi_type": "结息方式",
