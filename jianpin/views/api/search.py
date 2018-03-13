@@ -34,15 +34,15 @@ def job_list():
 
     for row in rows:
         payload.append({
-            "id": row.id,
-            "title": row.title,
-            "city_name": cities[row.id].city_name,
-            "tag": row.hot_tag,
-            "jianpin_starttime": row.jianpin_starttime,
-            "jianpin_endtime": row.jianpin_endtime,
-            "currency": row.currency,
-            "currency_unit": row.currency_unit,
-            "jiexi_type": row.jiexi_type,
+            'id': row.id,
+            'title': row.title,
+            'city_name': cities[row.id].city_name,
+            'tag': row.hot_tag,
+            'jianpin_starttime': row.jianpin_starttime,
+            'jianpin_endtime': row.jianpin_endtime,
+            'currency': row.currency,
+            'currency_unit': row.currency_unit,
+            'jiexi_type': row.jiexi_type,
         })
 
     return success(payload)
