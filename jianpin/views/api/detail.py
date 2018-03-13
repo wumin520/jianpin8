@@ -4,6 +4,7 @@ from flask import request
 from jianpin import app
 from jianpin.bll.city import CityBll
 from jianpin.bll.job import JobBll
+from jianpin.views import get_or_exception
 from jianpin.views.api import success
 
 
@@ -14,11 +15,7 @@ def city_list():
     :return:
     """
 
-    id = request.args.get('id', 0)
-    try:
-        id = int(id)
-    except:
-        raise Exception('参数有误')
+    id = get_or_exception('id', request.args, ptype='int')
 
     job = JobBll.get_instance().get_by_id(id)
     if not job:
