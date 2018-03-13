@@ -23,7 +23,7 @@ class CityBll(BaseBll):
         :return:
         """
 
-        return db.session.execute(
+        rows =  db.session.execute(
             """
             SELECT * FROM cities WHERE id in :ids
             """,
@@ -31,6 +31,10 @@ class CityBll(BaseBll):
                 'ids': ids
             }
         ).fetchall()
+        data = {}
+        for row in rows:
+            data[row.id] = row
+        return data
 
     def get_by_id(self, city_id):
         """

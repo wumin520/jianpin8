@@ -8,10 +8,10 @@ from jianpin.views import get_or_exception
 from jianpin.views.api import success
 
 
-@app.route('/api/job.list')
+@app.route('/api/job.search')
 def job_list():
     """
-    doc/list.md
+    doc/search.md
     :return:
     """
 
@@ -19,9 +19,10 @@ def job_list():
     offset = get_or_exception('offset', request.args, ptype='int', default=0)
     pagesize = get_or_exception('pagesize', request.args, ptype='int',
                                 default=50)
+    keywords = get_or_exception('keywords', request.args, ptype='str')
 
-    rows = JobBll.get_instance().fetch_list_data(
-        city_id=city_id, page=offset, pagesize=pagesize)
+    rows = JobBll.fetch_search_data(city_id=city_id, keywords=keywords,
+                                    page=offset, pagesize=pagesize)
 
     payload = []
 
