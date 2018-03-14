@@ -31,7 +31,7 @@ def job_list():
     for row in rows:
         city_ids[row.id] = row.id
 
-    cities = CityBll.get_instance().fetch_by_ids(city_ids.keys())
+    cities = CityBll.get_instance().fetch_by_ids(list(city_ids.keys()))
 
     for row in rows:
         payload.append({
