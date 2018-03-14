@@ -27,9 +27,6 @@ def city_list():
     jianpin_endtime = ''
     if job.jianpin_endtime:
         jianpin_endtime = job.jianpin_endtime.strftime('%Y-%m-%d %H:%M:%S')
-    work_time = ''
-    if job.work_time:
-        work_time = job.work_time.strftime('%Y-%m-%d %H:%M:%S')
 
     payload = {
         'id': job.id,
@@ -45,7 +42,7 @@ def city_list():
         'jianpin_person': job.jianpin_person,
         'jianpin_detail': job.jianpin_detail,
         'welfare': job.welfare,
-        'work_time': work_time,
+        'work_time': job.work_time,
         'work_adress': job.work_adress,
         'company': job.company,
         'jump_url': job.jump_url,
