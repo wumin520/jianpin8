@@ -66,7 +66,7 @@ class JobBll(BaseBll):
             return []
 
         offset = (page - 1) * pagesize
-        where = 'WHERE title like \'%{}%\''.format(keywords)
+        where = 'WHERE title like :keywords'
         if city_id:
             where += ' AND city_id = :city_id'
         rows = db.session.execute(
@@ -75,7 +75,8 @@ class JobBll(BaseBll):
             LIMIT {},{}
             """.format(where, offset, pagesize),
             {
-                'city_id': city_id
+                'city_id': city_id,
+                'keywords': keywords
             }
         ).fetchall()
         return rows
@@ -109,7 +110,7 @@ class JobBll(BaseBll):
         :param keywords:
         :return:
         """
-        where = 'WHERE title like \'%{}%\''.format(keywords)
+        where = 'WHERE title like :keywords'
         if city_id:
             where += ' AND city_id = :city_id'
 
@@ -118,7 +119,8 @@ class JobBll(BaseBll):
             SELECT count(id) as cnt FROM jobs {}
             """.format(where),
             {
-                'city_id': city_id
+                'city_id': city_id,
+                'keywords': keywords
             }
         ).fetchone()
         if row and row.cnt:
