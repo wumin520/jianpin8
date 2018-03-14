@@ -66,7 +66,7 @@ class JobBll(BaseBll):
             return []
 
         offset = (page - 1) * pagesize
-        where = 'WHERE title like \'%{}%\''.format(keywords)
+        where = 'WHERE title like \'\%{}\%\''.format(keywords)
         if city_id:
             where += ' AND city_id = :city_id'
         rows = db.session.execute(
@@ -109,7 +109,7 @@ class JobBll(BaseBll):
         :param keywords:
         :return:
         """
-        where = 'WHERE title like \'%{}%\''.format(keywords)
+        where = 'WHERE title like \'\%{}\%\''.format(keywords)
         if city_id:
             where += ' AND city_id = :city_id'
 
