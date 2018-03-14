@@ -6,7 +6,8 @@ from jianpin import app
 
 @app.errorhandler(Exception)
 def handle_api_exception(e):
-    res = jsonify(e.to_dict())
+    data = dict(err_code=1, err_msg=str(e))
+    res = jsonify(data)
     res.status_code = e.status_code
     return res
 
