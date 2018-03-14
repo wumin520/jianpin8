@@ -21,21 +21,12 @@ def city_list():
         raise APIException(err_msg='内容不存在')
 
     city = CityBll.get_instance().get_by_id(job.city_id)
-    jianpin_starttime = ''
-    if job.jianpin_starttime:
-        jianpin_starttime = job.jianpin_starttime.strftime('%Y-%m-%d %H:%M:%S')
-    jianpin_endtime = ''
-    if job.jianpin_endtime:
-        jianpin_endtime = job.jianpin_endtime.strftime('%Y-%m-%d %H:%M:%S')
 
     payload = {
         'id': job.id,
         'title': job.title,
         'city_name': city.city_name,
-        'tag': job.hot_tag,
-        'jianpin_type': job.jianpin_type,
-        'jianpin_starttime': jianpin_starttime,
-        'jianpin_endtime': jianpin_endtime,
+        'hot_tag': job.hot_tag,
         'currency': job.currency,
         'currency_unit': job.currency_unit,
         'jiexi_type': job.jiexi_type,
