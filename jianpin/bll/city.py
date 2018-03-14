@@ -22,8 +22,10 @@ class CityBll(BaseBll):
 
         :return:
         """
+        if not ids:
+            return {}
 
-        rows =  db.session.execute(
+        rows = db.session.execute(
             """
             SELECT * FROM cities WHERE id in :ids
             """,
