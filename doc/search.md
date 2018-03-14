@@ -33,9 +33,8 @@ GET
 | id | Integer | id |
 | title | String | 标题 |
 | city_name | String | 城市名 |
-| tag | String | 标签 |
-| jianpin_starttime | String | 招聘开始时间 |
-| jianpin_endtime | String | 招聘结束时间 |
+| hot_tag | Integer | 是否启用热门标签：1：启用，2：不启用 |
+| jianpin_type | String | 招聘方式：长期招聘/指定时间 |
 | currency | String | 薪资 |
 | currency_unit | String | 薪资结算的单位 |
 | jiexi_type | String | 结息方式 |
@@ -49,12 +48,11 @@ GET
       "id": 1,
       "title": "标题",
       "city_name": "城市名",
-      "tag": "标签",
-      "jianpin_starttime": "2018-03-15 13:04:05",
-      "jianpin_endtime": "2018-03-15 13:04:05",
-      "currency": "薪资",
-      "currency_unit": "薪资结算的单位",
-      "jiexi_type": "结息方式",
+      "hot_tag": 1,
+      "jianpin_type": "长期招聘",
+      "currency": "2000",
+      "currency_unit": "日",
+      "jiexi_type": "月结",
     }
   ]
 }

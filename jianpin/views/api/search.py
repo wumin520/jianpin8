@@ -36,21 +36,27 @@ def job_list():
     cities = CityBll.get_instance().fetch_by_ids(list(city_ids.keys()))
 
     for row in rows:
-        jianpin_starttime = ''
-        if row.jianpin_starttime:
-            jianpin_starttime = row.jianpin_starttime.strftime('%Y-%m-%d '
-                                                               '%H:%M:%S')
-        jianpin_endtime = ''
-        if row.jianpin_endtime:
-            jianpin_endtime = row.jianpin_endtime.strftime('%Y-%m-%d %H:%M:%S')
+        jianpin_startdate = ''
+        if row.jianpin_startdate:
+            startdate = row.jianpin_startdate
+            jianpin_startdate = startdate[5:7] + '.' + startdate[8:10]
+
+        jianpin_enddate = ''
+        if row.jianpin_enddate:
+            enddate = row.jianpin_enddate
+            jianpin_enddate = enddate[5:7] + '.' + enddate[8:10]
+
+        jianpin_type = "长期招聘"
+        if row.jianpin_type == 2:
+            if jianpin_startdate and jianpin_enddate:
+                jianpin_type = jianpin_startdate + '-' + jianpin_enddate
 
         payload.append({
             'id': row.id,
             'title': row.title,
             'city_name': cities[row.id].city_name,
-            'tag': row.hot_tag,
-            'jianpin_starttime': jianpin_starttime,
-            'jianpin_endtime': jianpin_endtime,
+            'hot_tag': row.hot_tag,
+            'jianpin_type': jianpin_type,
             'currency': row.currency,
             'currency_unit': row.currency_unit,
             'jiexi_type': row.jiexi_type,

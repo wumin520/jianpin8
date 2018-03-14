@@ -141,3 +141,4 @@ class JobBll(BaseBll):
                 'id': id
             }
         ).fetchone()
+
