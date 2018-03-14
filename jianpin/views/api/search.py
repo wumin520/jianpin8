@@ -20,8 +20,10 @@ def job_list():
                                 default=50)
     keywords = get_or_exception('keywords', request.args, ptype='str')
 
-    rows = JobBll.fetch_search_data(city_id=city_id, keywords=keywords,
-                                    page=offset, pagesize=pagesize)
+    rows = JobBll.get_instance().fetch_search_data(city_id=city_id,
+                                                   keywords=keywords,
+                                                   page=offset,
+                                                   pagesize=pagesize)
 
     payload = []
 
