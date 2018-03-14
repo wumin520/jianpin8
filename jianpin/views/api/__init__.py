@@ -8,7 +8,7 @@ from jianpin import app
 def handle_api_exception(e):
     data = dict(err_code=1, err_msg=str(e))
     res = jsonify(data)
-    res.status_code = e.status_code
+    res.status_code = 400
     return res
 
 
