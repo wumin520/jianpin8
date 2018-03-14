@@ -4,8 +4,7 @@ from flask import request
 from jianpin import app
 from jianpin.bll.city import CityBll
 from jianpin.bll.job import JobBll
-from jianpin.views import get_or_exception
-from jianpin.views.api import success
+from jianpin.views.api import success, APIException, get_or_exception
 
 
 @app.route('/api/job.detail')
@@ -19,7 +18,7 @@ def city_list():
 
     job = JobBll.get_instance().get_by_id(id)
     if not job:
-        raise Exception('内容不存在')
+        raise APIException(err_msg='内容不存在')
 
     city = CityBll.get_instance().get_by_id(job.city_id)
 
