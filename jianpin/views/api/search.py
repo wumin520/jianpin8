@@ -4,8 +4,7 @@ from flask import request
 from jianpin import app
 from jianpin.bll.city import CityBll
 from jianpin.bll.job import JobBll
-from jianpin.views import get_or_exception
-from jianpin.views.api import success
+from jianpin.views.api import success, get_or_exception
 
 
 @app.route('/api/job.search')
