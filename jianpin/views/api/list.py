@@ -23,7 +23,7 @@ def job_list():
         city_id=city_id, page=offset, pagesize=pagesize)
 
     city_ids = [row.city_id for row in rows]
-    cities = CityBll.get_instance().fetch_by_ids(city_ids)
+    cities = CityBll.get_instance().fetch_by_ids(list(set(city_ids)))
 
     payload = []
     for row in rows:

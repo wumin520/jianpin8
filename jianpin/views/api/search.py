@@ -29,11 +29,8 @@ def job_list():
 
     payload = []
 
-    city_ids = dict()
-    for row in rows:
-        city_ids[row.id] = row.id
-
-    cities = CityBll.get_instance().fetch_by_ids(list(city_ids.keys()))
+    city_ids = [row.city_id for row in rows]
+    cities = CityBll.get_instance().fetch_by_ids(list(set(city_ids)))
 
     for row in rows:
         jianpin_startdate = ''
