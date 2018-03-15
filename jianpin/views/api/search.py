@@ -38,12 +38,12 @@ def job_list():
     for row in rows:
         jianpin_startdate = ''
         if row.jianpin_startdate:
-            startdate = row.jianpin_startdate
+            startdate = row.jianpin_startdate.strftime('%Y-%m-%d')
             jianpin_startdate = startdate[5:7] + '.' + startdate[8:10]
 
         jianpin_enddate = ''
         if row.jianpin_enddate:
-            enddate = row.jianpin_enddate
+            enddate = row.jianpin_enddate.strftime('%Y-%m-%d')
             jianpin_enddate = enddate[5:7] + '.' + enddate[8:10]
 
         jianpin_type = "长期招聘"

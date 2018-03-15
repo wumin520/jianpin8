@@ -22,23 +22,19 @@ def job_list():
     rows = JobBll.get_instance().fetch_list_data(
         city_id=city_id, page=offset, pagesize=pagesize)
 
+    city_ids = [row.city_id for row in rows]
+    cities = CityBll.get_instance().fetch_by_ids(city_ids)
+
     payload = []
-
-    city_ids = dict()
-    for row in rows:
-        city_ids[row.id] = row.id
-
-    cities = CityBll.get_instance().fetch_by_ids(list(city_ids.keys()))
-
     for row in rows:
         jianpin_startdate = ''
         if row.jianpin_startdate:
-            startdate = row.jianpin_startdate
+            startdate = row.jianpin_startdate.strftime('%Y-%m-%d')
             jianpin_startdate = startdate[5:7] + '.' + startdate[8:10]
 
         jianpin_enddate = ''
         if row.jianpin_enddate:
-            enddate = row.jianpin_enddate
+            enddate = row.jianpin_enddate.strftime('%Y-%m-%d')
             jianpin_enddate = enddate[5:7] + '.' + enddate[8:10]
 
         jianpin_type = "长期招聘"
@@ -50,12 +46,12 @@ def job_list():
         payload.append({
             'id': row.id,
             'title': row.title,
-            'city_name': cities[row.id].city_name,
+            'city_name': cities[row.city_id].city_name,
             'hot_tag': row.hot_tag,
             'jianpin_type': jianpin_type,
             'currency': row.currency,
-            'currency_unit': JIANPIN_CURRENCY_UNIT['row.currency_unit'],
-            'jiexi_type': JIANPIN_JIEXI_TYPE['row.jiexi_type'],
+            'currency_unit': JIANPIN_CURRENCY_UNIT[row.currency_unit],
+            'jiexi_type': JIANPIN_JIEXI_TYPE[row.jiexi_type],
         })
 
     return success(payload)
