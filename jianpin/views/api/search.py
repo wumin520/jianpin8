@@ -51,7 +51,7 @@ def job_list():
         payload.append({
             'id': row.id,
             'title': row.title,
-            'city_name': cities[row.id].city_name,
+            'city_name': cities[row.city_id].city_name,
             'hot_tag': row.hot_tag,
             'jianpin_type': jianpin_type,
             'currency': row.currency,
