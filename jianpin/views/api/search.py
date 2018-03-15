@@ -44,7 +44,7 @@ def job_list():
             jianpin_enddate = enddate[5:7] + '.' + enddate[8:10]
 
         jianpin_type = "长期招聘"
-        if row.jianpin_type == 2:
+        if row.jianpin_type == 1:
             if jianpin_startdate and jianpin_enddate:
                 jianpin_type = jianpin_startdate + '-' + jianpin_enddate
 
