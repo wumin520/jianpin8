@@ -27,5 +27,17 @@ make run
 
 ### 生产部署
 
+机器部署在n1375
+
+上线：
+
+```powershell
+ssh n1375
+
+cd /home/www/jianpin8
+
+bash release.sh
+```
+
 + Nginx把/api/xxx的请求转发到jianpin后端代码
 + Nginx把其它请求指到前端代码库目录 [https://git.corp.qianka.com/market/sugar](https://git.corp.qianka.com/market/sugar)
