@@ -15,7 +15,7 @@ requests==2.9.1
 simplejson==3.10.0
 SQLAlchemy==1.0.9
 webassets==0.11.1
-Werkzeug==0.10.4
+Werkzeug==0.15.3
 
 -e git+ssh://git@git.corp.qianka.com/qianka/qianka-cache#egg=qianka-cache
 -e git+ssh://git@git.corp.qianka.com/qianka/qianka-flaskext#egg=qianka-flaskext
