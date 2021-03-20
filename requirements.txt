@@ -7,7 +7,7 @@ Flask-SQLAlchemy==2.0
 Flask-WTF==0.11
 gunicorn==19.4.1
 itsdangerous==0.24
-Jinja2==2.8
+Jinja2==2.11.3
 MarkupSafe==0.23
 PyMySQL==0.7.11
 redis==2.10.5
